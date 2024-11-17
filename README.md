@@ -149,13 +149,13 @@ I may implement some of these improvements at some point however others are welc
 
 With that said here are some future improvements I can think of. These are listed in no particular order.
 
-* User Authentication - not a high priority for me for a LAN-only project such as this.
-* A way for a user to edit/change their vote
-* Periodically (maybe via a new url triggered from a cron job) remove all 'Keep' votes from the database, eg every 3 or 6 months. This would stop items ending up Keep forever and the resulting bloated media library. A better variation of this might be 'x months after that user last voted on that item' which would mean adding a vote timestamp to the voting db of course (not complex really).
-* A better nicer-looking GUI - no explanation needed, the current one is functional and 'not bad' but absolutely it is far from great!
-* A menu navbar for the GUI - another non-essential item hence not created initially, but would add a bit more glamour to this tool
-* Removal of orphan votes from the db (ie when the associated media no longer exists in Radarr). This could be done as part of the 'ready_to_delete' deletion function, however ideally would also detect and tidy if the media was deleted separately outside of Votearr.
-* Caching of the media posters - another one that doesn't seem that important to me for a low-usage system such as this, with 3 people voting you are downloading the image 3 times, big deal. However in the interests of optimum efficiency these could be saved and stored locally on the first vote, and then retrieved locally for the 2nd and 3rd person to vote on them. (I couldn't find a way to load the image directly from the Radarr Server without the end-user logging into Radarr before they vote in Votearr, which defeats the point of using the API)
+- [ ] User Authentication - not a high priority for me for a LAN-only project such as this.
+- [ ] A way for a user to edit/change their vote
+- [ ] Periodically (maybe via a new url triggered from a cron job) remove all 'Keep' votes from the database, eg every 3 or 6 months. This would stop items ending up Keep forever and the resulting bloated media library. A better variation of this might be 'x months after that user last voted on that item' which would mean adding a vote timestamp to the voting db of course (not complex really).
+- [ ] A better nicer-looking GUI - no explanation needed, the current one is functional and 'not bad' but absolutely it is far from great!
+- [ ] A menu navbar for the GUI - another non-essential item hence not created initially, but would add a bit more glamour to this tool
+- [ ] Removal of orphan votes from the db (ie when the associated media no longer exists in Radarr). This could be done as part of the 'ready_to_delete' deletion function, however ideally would also detect and tidy if the media was deleted separately outside of Votearr.
+- [ ] Caching of the media posters - another one that doesn't seem that important to me for a low-usage system such as this, with 3 people voting you are downloading the image 3 times, big deal. However in the interests of optimum efficiency these could be saved and stored locally on the first vote, and then retrieved locally for the 2nd and 3rd person to vote on them. (I couldn't find a way to load the image directly from the Radarr Server without the end-user logging into Radarr before they vote in Votearr, which defeats the point of using the API)
 
 
 ## 🙏 Acknowledgements
