@@ -113,9 +113,11 @@ Media items are shown in a random order (rather than alphabetically for example)
 
 ![screenshot](/screenshots/vote_buttons.png)
 
-Any items a user votes as *Decide Later* will be skipped from future voting shown to them *until* they have voted on all other unvoted media items. Once they have voted on every item once these Decide Later voted items will then become available again to be randomly re-presented furthur voting choices to be made.
+Any items a user votes as *Decide Later* will be skipped from future voting shown to them *until* they have voted on all other unvoted media items. When they have voted on every unvoted item available, these Decide Later voted items will then become available again to be randomly re-presented again so a Keep/Remove vote may be cast. A user is free to select to Decide Later again, of course.
 
-At any point the user may close the page and return at another time. Voting made so far will be saved, and voting will resume with a newly randomly presented media item. 
+At any point the user may close the page and return at another time. 
+
+Votes are saved immediately to the database upon each vote. Voting will resume with a newly randomly presented media item on their next visit to the Votearr url. 
 
 ### Viewing voting status
 
