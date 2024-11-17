@@ -19,7 +19,7 @@ Once installed your group use it via a simple web interface on a Computer or Mob
 2. Edit [settings.ini](#configuration)
 3. Build and run the docker image.
 
-*See below for [detailed install instructions]() for Windows or Linux*
+*See below for [detailed install instructions](#detailedinstallsteps) for Windows or Linux*
 
 ***
 <a id="configuration"></a>
@@ -56,7 +56,7 @@ The minimum number of unique users voting 'Delete' for an item before it will be
 example: `delete_votes_required=3`
 
 ***
-
+<a id="detailedinstallsteps"></a>
 ## 💡 Detailed Install Instructions
 
 ### Setup in Windows
