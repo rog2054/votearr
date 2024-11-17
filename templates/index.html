@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Select User</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Who are you?</h1>
+            <div class="buttons">
+                {% for user in users %}
+                <a href="{{ url_for('vote', user=user) }}" class="button is-success is-large mb-4">{{ user }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

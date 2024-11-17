@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>To Delete View</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Media Items to Delete</h1>
+            <a href="{{ url_for('list_view') }}"><button class="button is-success is-large">Return to Voting
+                    Results</button></a>
+            <table class="table is-fullwidth is-striped">
+                <thead>
+                    <tr>
+                        <th>Media Name</th>
+                        <th>Delete from Library</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for media in to_delete %}
+                    <tr>
+                        <td>{{ media.title }} ({{ media.year }})</td>
+                        <td>
+                            <a href="{{ media.delete_url }}"><button class=" button is-danger">Delete Now</button></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
+
+</html>

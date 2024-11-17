@@ -1,0 +1,95 @@
+/* Flex container for the media item */
+.media-item {
+    display: flex;
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: center;
+    /* Center items horizontally */
+    justify-content: center;
+    /* Center items vertically */
+    text-align: center;
+    padding: 15px;
+}
+
+/* Ensure image responsiveness */
+img.poster {
+    width: 100%;
+
+    /* Scale image to fit container width */
+    /* Extra Small Devices, Phones */
+    @media only screen and (min-width : 480px) {
+        max-width: 500px;
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (min-width : 768px) {
+        max-width: 750px;
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (min-width : 992px) {
+        max-width: 400px;
+    }
+
+    /* Maximum width */
+    height: auto;
+    /* Maintain aspect ratio */
+    object-fit: contain;
+    /* Ensure image doesn't get distorted or cropped */
+}
+
+/* styles.css */
+.table {
+    width: 50%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #65a3dd;
+    font-weight: bold;
+}
+
+.table tr:nth-child(even) {
+    background-color: #b0cae2;
+}
+
+.table tr:hover {
+    background-color: #e4d6af;
+    /* Optional: Highlight row on hover */
+}
+
+.w3-light-grey {
+    color: #000 !important;
+    background-color: #f1f1f1 !important
+}
+
+.w3-container {
+    padding: 0.01em 16px
+}
+
+.w3-green {
+    color: #fff !important;
+    background-color: #15c60c !important
+}
+
+.w3-blue {
+    color: #fff !important;
+    background-color: #2a87df;
+}
+
+.w3-red {
+    color: #fff !important;
+    background-color: #e81224;
+}
+
+.w3-yellow {
+    color: #fff !important;
+    background-color: #fff200;
+}

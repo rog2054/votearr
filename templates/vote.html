@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vote on Media</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <section class="section">
+
+        <div class="container">
+            <div class="w3-light-grey" style="width:500px">
+                <div class="w3-container w3-green w3-center" style="width:{{ userpercentvoted }}%">{{ userpercentvoted
+                    }}%
+                </div>
+            </div>
+            <h1 class="title">{{ media_name }}</h1>
+            <form method="post" action="{{ url_for('vote', user=user) }}">
+                <input type="hidden" name="media_id" value="{{ media_id }}">
+                <div class="buttons mb-4"> <!-- Adding margin-bottom to create space between buttons and image -->
+                    <button type="submit" name="vote" value="Keep" class="button is-success is-large mr-3">Keep</button>
+                    <button type="submit" name="vote" value="Remove"
+                        class="button is-danger is-large mr-3">Delete</button>
+                    <button type="submit" name="vote" value="Decide later" class="button is-warning is-large">Decide
+                        Later / Haven't Watched Yet</button>
+                </div>
+            </form>
+            <img class="poster" src="{{ poster_url }}" alt="{{ media_name }}">
+            <h2>Voting as {{user}}</h2>
+            <div class="buttons"><a href="{{ url_for('index') }}" class="button is-success is-large mb-4">Not
+                    you?</a></div>
+    </section>
+</body>
+
+</html>

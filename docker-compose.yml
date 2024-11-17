@@ -1,0 +1,7 @@
+services:
+  flask_app:
+    build: .
+    ports:
+      - "80:5000" # access port 80 on your docker host ip to reach this flask service running on port 5000 within the container
+    volumes:
+      - ./db:/app/db # Map db folder for persistent storage

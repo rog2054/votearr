@@ -1,0 +1,73 @@
+<!-- list.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Media Voting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Media Voting: Results so far</h1>
+        {% for user in userstats %}
+        <p>{{ user.user }}</p>
+        <div class="w3-light-grey" style="width: 250px; height: 20px; position: relative;">
+            <!-- Green bar segment -->
+            <div class="w3-container w3-green" style="width: {{ user.keep }}%; height: 100%; float: left;"></div>
+
+            <!-- Red bar segment -->
+            <div class="w3-container w3-red" style="width: {{ user.delete }}%; height: 100%; float: left;"></div>
+
+            <!-- Yellow bar segment -->
+            <div class="w3-container w3-yellow" style="width: {{ user.decidelater }}%; height: 100%; float: left;">
+            </div>
+        </div>
+        {% endfor %}
+
+        <br />
+
+        <span class="icon is-success mr-5">Keep &#x1F7E2;&nbsp;</span>
+        <span class="icon is-danger mr-5">Delete &#x1F534;</span>
+        <span class="icon is-warning mr-5">Undecided &#x1F7E1;</span>
+        <span class="icon is-light mb-3">No vote yet &#x26AA;</span>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <!-- <th>ID</th> -->
+                    <!-- uncomment the above line if you want to know the media id for manual sqlite db editing -->
+                    {% for user in user_list %}
+                    <th>{{ user }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for media in media_list %}
+                <tr>
+                    <td>{{ media.title }} ({{ media.year }})</td>
+                    <!-- <td>{{ media.id }}</td> -->
+                    <!-- uncomment the above line if you want to know the media id for manual sqlite db editing -->
+                    {% for user in user_list %}
+                    <td>
+                        {% if media.votes[user] == 'Keep' %}
+                        <span class="icon is-success">&#x1F7E2;</span>
+                        {% elif media.votes[user] == 'Remove' %}
+                        <span class="icon is-danger">&#x1F534;</span>
+                        {% elif media.votes[user] == 'Decide later' %}
+                        <span class="icon is-warning">&#x1F7E1;</span>
+                        {% else %}
+                        <span class="icon is-light">&#x26AA;</span>
+                        {% endif %}
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
