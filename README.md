@@ -55,6 +55,17 @@ The minimum number of unique users voting 'Delete' for an item before it will be
 
 example: `delete_votes_required=3`
 
+### Changing the Docker container from the default port 80
+For my use this was fine on port 80 and means the user doesn't need to add a port number onto the url so it is more user-friendly.
+
+However, if your docker host machine is already using port 80 please edit the docker-compose.yml file before performing the initial build.
+
+`- "80:5000"` change this line of *docker-compose.yml* to your required port eg `- "8456:5000"`
+
+This will then be accessible by adding the port number onto the url, eg `http://192.168.1.24:8456` once the container is running.
+
+To keep things user-friendly but with a non-default port you could use something like nginx proxy manager (and the appropriate DNS entries) to present Votearr as a url name instead of IP address. That setup is beyond the scope of this install guide but hopefully points you in the right direction if this is something you wish to explore further.
+
 ***
 <a id="detailedinstallsteps"></a>
 ## 💡 Detailed Install Instructions
@@ -174,6 +185,6 @@ With that said here are some future improvements I can think of. These are liste
 ## 💀 Privacy
 
 - The only data saved by votearr is saved into the .db file which is stored locally on your docker host machine (outside of the docker container)
-- This .db file contains votes, however does not show the media names or public references (such as imdb/tmdb ID's) - it only stores the Radarr media ID for it. These values are specific to your individual Radarr environment. In other words, if anyone obtains this .db file cannot determine what media you have in your library unless they also have access to *your* Radarr.
+- This .db file contains votes, however does not show the media names or public references (such as imdb/tmdb ID's) - it only stores the Radarr media ID for it. These values are specific to your individual Radarr environment. In other words, if anyone obtains this .db file they cannot determine what media you have in your library unless they also have access to *your* Radarr.
 
 ***
