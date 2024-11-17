@@ -109,8 +109,13 @@ Click on your name to proceed to media voting.
 After the user has been selected, the media voting page will load. 
  
 This page shows the Title of the media, an image of the media (if available), and the 3 voting buttons
+Media items are shown in a random order (rather than alphabetically for example) to keep things interesting.
 
 ![screenshot](/screenshots/vote_buttons.png)
+
+Any items a user votes as *Decide Later* will be skipped from future voting shown to them *until* they have voted on all other unvoted media items. Once they have voted on every item once these Decide Later voted items will then become available again to be randomly re-presented furthur voting choices to be made.
+
+At any point the user may close the page and return at another time. Voting made so far will be saved, and voting will resume with a newly randomly presented media item. 
 
 ### Viewing voting status
 
