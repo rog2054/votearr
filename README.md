@@ -127,11 +127,11 @@ Here notice the last item in this example has received Delete votes from all use
 
 `http://192.168.1.24/ready_to_delete`
 
-Media items that everyone voted to delete are shown on a page along with a **Delete Forever** button.
-
-Pressing this will delete the media from Radarr (and the media file from your media storage).
+Media items that everyone voted to delete are shown on a page along with a **Delete Now** button.
 
 ![screenshot](/screenshots/delete_after_vote_consensus.png)
+
+Pressing that button next to each item on this page will delete that media from Radarr (and delete the media file from your media storage).
 
 ***
 
