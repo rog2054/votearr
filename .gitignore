@@ -1,3 +1,4 @@
 instance/
 db/*.db
 *.code-workspace
+settings.ini
