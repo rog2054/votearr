@@ -12,17 +12,26 @@
     <div class="container">
         <h1>Media Voting: Results so far</h1>
         {% for user in userstats %}
-        <p>{{ user.user }}</p>
+        <p style="margin-block-end: 0px;">{{ user.user }}
+            {% if user.unvoted > 0 %}
+            ({{ user.unvoted }}% not voted yet)
+            {% endif %}
+        </p>
+
         <div class="w3-light-grey" style="width: 250px; height: 20px; position: relative;">
             <!-- Green bar segment -->
-            <div class="w3-container w3-green" style="width: {{ user.keep }}%; height: 100%; float: left;"></div>
+            <div class="w3-container w3-green" style="width: {{ user.keep }}%; height: 100%; float: left; padding: 0px">
+            </div>
 
             <!-- Red bar segment -->
-            <div class="w3-container w3-red" style="width: {{ user.delete }}%; height: 100%; float: left;"></div>
+            <div class="w3-container w3-red" style="width: {{ user.delete }}%; height: 100%; float: left; padding: 0px">
+            </div>
 
             <!-- Yellow bar segment -->
-            <div class="w3-container w3-yellow" style="width: {{ user.decidelater }}%; height: 100%; float: left;">
+            <div class="w3-container w3-yellow"
+                style="width: {{ user.decidelater }}%; height: 100%; float: left; padding: 0px">
             </div>
+
         </div>
         {% endfor %}
 
