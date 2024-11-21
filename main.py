@@ -67,6 +67,24 @@ def get_random_media(user):
         "poster_url": poster_url  # Use the first image URL as the poster
     }
 
+def purge_votes_for_nomediafound_item(media_id):
+    mediavotes = Vote.query.filter_by(media_id=media_id).count()
+    if mediavotes == 0:
+        # no votes for this media_id, no purge needed
+        return
+    
+    else:    
+        media_items = radarr.all_movies()
+        librarysize = len(media_items)
+        if librarysize < 10:
+            # exit without purge if fewer than 10 media items found - possible connectivity problem between votearr and radarr
+            return
+        else:
+            votes_to_delete = Vote.query.filter_by(media_id=media_id)
+            purged_votes = votes_to_delete.delete()
+            db.session.commit()
+            print (f"{purged_votes} votes purged from Vote db")
+            return
 
 def calc_user_voted_percent(user):
     uservotes = Vote.query.filter_by(user=user).count()
@@ -202,6 +220,8 @@ def list_view():
             })
         except Exception as e:
             print(f"Error fetching media item {media_id}: {e}")
+            # media no longer exists, so purge any related votes
+            purge_votes_for_nomediafound_item(media_id)
 
     # sort alphabetically by title
     media_details.sort(key=lambda x: x['title'])
